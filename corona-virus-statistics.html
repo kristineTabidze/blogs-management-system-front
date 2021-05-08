@@ -15,9 +15,8 @@
       gtag("js", new Date());
       gtag("config", "UA-162451760-1");
     </script>
-
     <link rel="icon" href="imgs/tab-logo.svg" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
     <meta charset="UTF-8" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>კორონავირუსის სტატისტიკა</title>
@@ -29,9 +28,6 @@
       <div class="headerInnerButtons">
         <div class="logoWithText" onclick="`${scrollToGeneralInfo()}`">
           <img src="imgs/virusebi.svg" alt="virusebi" width="35" />
-          <div class="texts">
-            <div>VIRUSEBI.GE</div>
-          </div>
         </div>
         <div class="headerMainButtons">
           <div class="headerButton" onclick="`${scrollToStatistics()}`">
@@ -55,9 +51,8 @@
         src='https://www.youtube.com/embed/xFPNoWTU7hA&feature=youtu.be&fbclid=IwAR2qkDF1Al9fobrIKHN4MG_UYA9o3UXQyy5dJc5PA2kNOooZqJQRbhHuvKw?rel=0;autoplay=1&mute=0&enablejsapi=1;playlist=xFPNoWTU7hA&feature=youtu.be&fbclid=IwAR2qkDF1Al9fobrIKHN4MG_UYA9o3UXQyy5dJc5PA2kNOooZqJQRbhHuvKw&loop=1;allow="autoplay"'
       ></iframe>
     </div>
-
     <div class="generalInfo">
-      <div class="mainTitle">კორონავირუსის (COVID-19) შემთხვევა:</div>
+      <div class="mainTitle">Number of Corona Virus (COVID-19) Cases:</div>
       <div class="worldAndGeorgiaContainer" id="generalInfo">
         <div id="1"></div>
         <div id="2"></div>
@@ -88,23 +83,23 @@
           document.getElementById("2").innerHTML +=
             "<div class=titleAndIfo>" +
             "<div class=worldTitle>" +
-            "მსოფლიოში" +
+            "In the World" +
             "</div>" +
             "<div class=georgiaGeneralInfoContainer>" +
             "<div class=infoWithNumber>" +
-            "დადასტურებული შემთხვევა: " +
+            "Total Cases: " +
             "<div class=numberOfCases>" +
             numberConvertor(allCases[0].cases + "") +
             "</div>" +
             "</div>" +
             "<div  class=infoWithNumber>" +
-            "გამოჯანმრთელდა: " +
+            "Recovered: " +
             "<div class=numberOfRecovery>" +
             numberConvertor(allCases[0].recovered + "") +
             "</div>" +
             "</div>" +
             "<div class=infoWithNumber>" +
-            "გარდაიცვალა: " +
+            "Died: " +
             "<div class=numberOfDeaths>" +
             numberConvertor(allCases[0].deaths + "") +
             "</div>" +
@@ -120,46 +115,31 @@
           document.getElementById("1").innerHTML +=
             "<div class=titleAndIfo>" +
             "<div class=georgiaTitle>" +
-            "საქართველოში" +
+            "In Georgia" +
             "</div>" +
             "<div class=georgiaGeneralInfoContainer>" +
             "<div class=infoWithNumber>" +
-            "დადასტურებული შემთხვევა: " +
+            "Total Cases: " +
             "<div class=numberOfCases>" +
-            allGeorgianCases[0].cases +
+            numberConvertor(allGeorgianCases[0].deaths + "") +
             "</div>" +
             "</div>" +
             "<div  class=infoWithNumber>" +
-            "გამოჯანმრთელდა: " +
+            "Recovered: " +
             "<div class=numberOfRecovery>" +
-            allGeorgianCases[0].recovered +
+            numberConvertor(allGeorgianCases[0].recovered + "") +
             "</div>" +
             "</div>" +
             "<div class=infoWithNumber>" +
-            "გარდაიცვალა: " +
+            "Died: " +
             "<div class=numberOfDeaths>" +
-            allGeorgianCases[0].deaths +
+            numberConvertor(allGeorgianCases[0].deaths + "") +
             "</div>" +
             "</div>" +
             "<div class=infoWithNumber>" +
-            "აქტიური შემთხვევა: " +
+            "Active Cases: " +
             "<div class=numberOfActive>" +
-            allGeorgianCases[0].active +
-            "</div>" +
-            "</div>" +
-            "<div class=infoWithNumber>" +
-            "სტაციონარში: " +
-            "<div class=numberOfActive>" +
-            222 +
-            "</div>" +
-            "</div>" +
-            "<div class=infoWithNumber>" +
-            "კარანტინში: " +
-            "<div  class=numberOfQuarantine>" +
-            convertedNumber +
-            "</div>" +
-            "</div>" +
-            "</div>" +
+            numberConvertor(allGeorgianCases[0].active + "") +
             "</div>" +
             "</div>";
         });
@@ -247,7 +227,7 @@
 
         const properties = [];
         for (const key of keys) {
-          const geoName = transformKeys(key);
+          const geoName = key;
           properties.push({ value: key, name: geoName });
         }
         var table = "";
@@ -279,7 +259,7 @@
         table += "</tr>";
         for (var country of countries) {
           table += "<tr>";
-          const geoCountry = transform(country.country);
+          const geoCountry = country.country;
           // const month = country.firstCase.slice(1, 4);
           // const day = country.firstCase.slice(5);
           // const geoMonth = transformMonths(month);
@@ -323,7 +303,7 @@
         const properties = [];
         const isResponsive = window.innerWidth < 1200;
         for (const key of keys) {
-          const geoName = transformKeys(key);
+          const geoName = key;
           properties.push({ value: key, name: geoName });
         }
 
@@ -383,11 +363,8 @@
 
         for (var country of countriesWithoutGeorgia) {
           table += "<tr>";
-          const geoCountry = transform(country.country);
+          const geoCountry = country.country;
           const values = Object.values(country);
-          // const month = country["firstCase"].slice(1, 4);
-          // const day = country["firstCase"].slice(5);
-          // const geoMonth = transformMonths(month);
           if (country.country === "Georgia") {
             table += "<td class=countryColumnsGeorgia>" + geoCountry + "</td>";
           } else {
