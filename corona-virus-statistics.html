@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-162451760-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-162451760-1");
+    </script>
+
+    <link rel="icon" href="imgs/tab-logo.svg" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>კორონავირუსის სტატისტიკა</title>
+  </head>
+  <body>
+    <script src="index.js"></script>
+    <script src="functions.js"></script>
+    <div class="header">
+      <div class="headerInnerButtons">
+        <div class="logoWithText" onclick="`${scrollToGeneralInfo()}`">
+          <img src="imgs/virusebi.svg" alt="virusebi" width="35" />
+          <div class="texts">
+            <div>VIRUSEBI.GE</div>
+          </div>
+        </div>
+        <div class="headerMainButtons">
+          <div class="headerButton" onclick="`${scrollToStatistics()}`">
+            სტატისტიკა
+          </div>
+          <div class="headerButton" onclick="`${scrollToQuestions()}`">
+            ხშირად დასმული კითხვები
+          </div>
+        </div>
+        <div class="callButton" onclick="`${scrollToFooter()}`">
+          <img src=imgs/phone.svg alt=phone class="callIcon" /> ცხელი ხაზები
+        </div>
+      </div>
+    </div>
+    <div class="videoWithButton">
+      <iframe
+        id="video"
+        class="videoContainer"
+        allow="autoplay"
+        autoplay="1"
+        src='https://www.youtube.com/embed/xFPNoWTU7hA&feature=youtu.be&fbclid=IwAR2qkDF1Al9fobrIKHN4MG_UYA9o3UXQyy5dJc5PA2kNOooZqJQRbhHuvKw?rel=0;autoplay=1&mute=0&enablejsapi=1;playlist=xFPNoWTU7hA&feature=youtu.be&fbclid=IwAR2qkDF1Al9fobrIKHN4MG_UYA9o3UXQyy5dJc5PA2kNOooZqJQRbhHuvKw&loop=1;allow="autoplay"'
+      ></iframe>
+    </div>
+
+    <div class="generalInfo">
+      <div class="mainTitle">კორონავირუსის (COVID-19) შემთხვევა:</div>
+      <div class="worldAndGeorgiaContainer" id="generalInfo">
+        <div id="1"></div>
+        <div id="2"></div>
+      </div>
+      <div id="3" class="tableContainer"></div>
+    </div>
+    <div>
+      <script>
+        var worldInfo = "";
+        let allCases = [];
+        let allGeorgianCases = [];
+
+        const getAllCases = () => {
+          return axios
+            .get("https://coronavirus-19-api.herokuapp.com/all")
+            .then((response) => {
+              allCases.push(response.data);
+            });
+        };
+        const getAllGeorgianCases = () => {
+          return axios
+            .get("https://coronavirus-19-api.herokuapp.com/countries/georgia")
+            .then((response) => {
+              allGeorgianCases.push(response.data);
+            });
+        };
+        getAllCases().then(() => {
+          document.getElementById("2").innerHTML +=
+            "<div class=titleAndIfo>" +
+            "<div class=worldTitle>" +
+            "მსოფლიოში" +
+            "</div>" +
+            "<div class=georgiaGeneralInfoContainer>" +
+            "<div class=infoWithNumber>" +
+            "დადასტურებული შემთხვევა: " +
+            "<div class=numberOfCases>" +
+            numberConvertor(allCases[0].cases + "") +
+            "</div>" +
+            "</div>" +
+            "<div  class=infoWithNumber>" +
+            "გამოჯანმრთელდა: " +
+            "<div class=numberOfRecovery>" +
+            numberConvertor(allCases[0].recovered + "") +
+            "</div>" +
+            "</div>" +
+            "<div class=infoWithNumber>" +
+            "გარდაიცვალა: " +
+            "<div class=numberOfDeaths>" +
+            numberConvertor(allCases[0].deaths + "") +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</div>";
+        });
+
+        getAllGeorgianCases().then(() => {
+          const numOfQuarantine = 4425;
+          let convertedNumber = numberConvertor(numOfQuarantine + "");
+          document.getElementById("1").innerHTML +=
+            "<div class=titleAndIfo>" +
+            "<div class=georgiaTitle>" +
+            "საქართველოში" +
+            "</div>" +
+            "<div class=georgiaGeneralInfoContainer>" +
+            "<div class=infoWithNumber>" +
+            "დადასტურებული შემთხვევა: " +
+            "<div class=numberOfCases>" +
+            allGeorgianCases[0].cases +
+            "</div>" +
+            "</div>" +
+            "<div  class=infoWithNumber>" +
+            "გამოჯანმრთელდა: " +
+            "<div class=numberOfRecovery>" +
+            allGeorgianCases[0].recovered +
+            "</div>" +
+            "</div>" +
+            "<div class=infoWithNumber>" +
+            "გარდაიცვალა: " +
+            "<div class=numberOfDeaths>" +
+            allGeorgianCases[0].deaths +
+            "</div>" +
+            "</div>" +
+            "<div class=infoWithNumber>" +
+            "აქტიური შემთხვევა: " +
+            "<div class=numberOfActive>" +
+            allGeorgianCases[0].active +
+            "</div>" +
+            "</div>" +
+            "<div class=infoWithNumber>" +
+            "სტაციონარში: " +
+            "<div class=numberOfActive>" +
+            222 +
+            "</div>" +
+            "</div>" +
+            "<div class=infoWithNumber>" +
+            "კარანტინში: " +
+            "<div  class=numberOfQuarantine>" +
+            convertedNumber +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</div>";
+        });
+      </script>
+    </div>
+    <script>
+      var table = "";
+      let countries = [];
+
+      const getData = () => {
+        return axios
+          .get("https://coronavirus-19-api.herokuapp.com/countries")
+          .then((response) => {
+            for (let r of response.data) {
+              if (
+                r.country !== "Total:" &&
+                r.country !== "South America" &&
+                r.country !== "North America" &&
+                r.country !== "Africa" &&
+                r.country !== "Europe" &&
+                r.country !== "Asia" &&
+                r.country !== "Oceania" &&
+                r.country !== ""
+              )
+                countries.push(r);
+            }
+          });
+      };
+      let clicked = 0;
+
+      const filterCountries = (value) => {
+        clicked++;
+        const id = value + "";
+        const fId = value + "sort";
+        let icon = "imgs/icon1.svg";
+
+        if (clicked === 1) {
+          if (value === "firstCase") {
+            countries.sort((a, b) => {
+              var dateA = new Date(a[value]),
+                dateB = new Date(b[value]);
+              return dateA - dateB;
+            });
+          }
+          countries.sort((a, b) => a[value] - b[value]);
+          icon = "imgs/icon2.svg";
+        } else if (clicked % 2 === 1) {
+          if (value === "firstCase") {
+            countries.sort((a, b) => {
+              var dateA = new Date(a[value]),
+                dateB = new Date(b[value]);
+              return dateA - dateB;
+            });
+          } else countries.sort((a, b) => a[value] - b[value]);
+          icon = "imgs/icon2.svg";
+        } else {
+          if (value === "firstCase") {
+            countries.sort((a, b) => {
+              var dateA = new Date(a[value]),
+                dateB = new Date(b[value]);
+              return dateB - dateA;
+            });
+          } else countries.sort((a, b) => b[value] - a[value]);
+          const g = countries.filter((country, index) => {
+            return country.country === "Georgia";
+          });
+
+          let cWithoutGeorgia = countries.filter((country, index) => {
+            return country.country !== "Georgia";
+          });
+          cWithoutGeorgia = insert(cWithoutGeorgia, 1, g[0]);
+          countries = cWithoutGeorgia;
+          let icon = "imgs/icon1.svg";
+        }
+        var element = document.getElementById("3");
+        element.innerHTML = drawTableAfterMount();
+        document.getElementById(
+          id
+        ).innerHTML = `<img src=${icon} alt=sort height=18 width=15  />`;
+      };
+
+      const drawTableAfterMount = () => {
+        const countryExmp = countries[0];
+        const keys = Object.keys(countryExmp);
+
+        const properties = [];
+        for (const key of keys) {
+          const geoName = transformKeys(key);
+          properties.push({ value: key, name: geoName });
+        }
+        var table = "";
+        table += "<tr>";
+        for (let property = 0; property < properties.length; property++) {
+          const divId = "sort" + property;
+          if (properties[property].value === "country") {
+            table += `<td onclick="filterCountries('${properties[property].value}')" class="tabCountry">
+                  <div class=valueAndIcon>
+                  <div>
+                  ${properties[property].name}
+                  </div>
+
+                  </div>
+                  </td>`;
+          } else {
+            table += `<td onclick="filterCountries('${properties[property].value}')" class="tab">
+                  <div class=valueAndIcon>
+                  <div>
+                  ${properties[property].name}
+                  </div>
+                  <div id=${properties[property].value} >
+                  <img src=imgs/sort.svg alt=sort height=18 width=15 />
+                  </div>
+                  </div>
+                  </td>`;
+          }
+        }
+        table += "</tr>";
+        for (var country of countries) {
+          table += "<tr>";
+          const geoCountry = transform(country.country);
+          // const month = country.firstCase.slice(1, 4);
+          // const day = country.firstCase.slice(5);
+          // const geoMonth = transformMonths(month);
+          const values = Object.values(country);
+
+          if (country.country === "Georgia") {
+            table += "<td class=countryColumnsGeorgia>" + geoCountry + "</td>";
+          } else {
+            table += "<td class=countryColumns>" + geoCountry + "</td>";
+          }
+          for (var value = 1; value < values.length; value++) {
+            let convertedNumber = numberConvertor(values[value] + "");
+            if (values[value] === 0) {
+              table += "<td class=columns >" + "" + "</td>";
+            } else if (value === 2) {
+              table +=
+                "<td class=newCasesColumns >" + "+" + convertedNumber + "</td>";
+            } else if (value === 4) {
+              table +=
+                "<td class=newDeathsColumns >" +
+                "+" +
+                convertedNumber +
+                "</td>";
+            } else {
+              table += "<td class=columns >" + convertedNumber + "</td>";
+            }
+          }
+          // table += "<td class=columns>" + geoMonth + " " + day + "</td>";
+          table += "</tr>";
+        }
+
+        return `<table border=1 class=table  >${table}</table>`;
+      };
+
+      const drawTable = () => {
+        const countryExmp = countries[0];
+        const keys = Object.keys(countryExmp);
+        const sortedCounries = countries.sort((b, a) => {
+          return a.cases - b.cases;
+        });
+        const properties = [];
+        const isResponsive = window.innerWidth < 1200;
+        for (const key of keys) {
+          const geoName = transformKeys(key);
+          properties.push({ value: key, name: geoName });
+        }
+
+        table += "<tr>";
+
+        for (let property = 0; property < properties.length; property++) {
+          const id = properties[property].value + "sort";
+          if (properties[property].value === "country") {
+            table += `<td onclick="filterCountries('${properties[property].value}')" class="tabCountry">
+                  <div class=valueAndIcon>
+                  <div>
+                  ${properties[property].name}
+                  </div>
+                  </div>
+                  </td>`;
+          } else if (properties[property].value === "cases") {
+            table += `<td onclick="filterCountries('${properties[property].value}')" class="tab">
+                  <div class=valueAndIcon>
+                  <div>
+                  ${properties[property].name}
+                  </div>
+                  <div id=${id} >
+                  <img src=imgs/icon1.svg alt=sort height=18 width=15 />
+                  </div>
+                  </div>
+                  </td>`;
+          } else {
+            table += `<td onclick="filterCountries('${properties[property].value}')" class="tab">
+                  <div class=valueAndIcon>
+                  <div>
+                  ${properties[property].name}
+                  </div>
+                  <div id=${id} >
+                  <img src=imgs/sort.svg alt=sort height=18 width=15 />
+                  </div>
+                  </div>
+                  </td>`;
+          }
+        }
+        table += "</tr>";
+
+        const georgia = sortedCounries.filter((country, index) => {
+          return country.country === "Georgia";
+        });
+
+        let countriesWithoutGeorgia = sortedCounries.filter(
+          (country, index) => {
+            return country.country !== "Georgia";
+          }
+        );
+
+        countriesWithoutGeorgia = insert(
+          countriesWithoutGeorgia,
+          1,
+          georgia[0]
+        );
+
+        for (var country of countriesWithoutGeorgia) {
+          table += "<tr>";
+          const geoCountry = transform(country.country);
+          const values = Object.values(country);
+          // const month = country["firstCase"].slice(1, 4);
+          // const day = country["firstCase"].slice(5);
+          // const geoMonth = transformMonths(month);
+          if (country.country === "Georgia") {
+            table += "<td class=countryColumnsGeorgia>" + geoCountry + "</td>";
+          } else {
+            table += "<td class=countryColumns>" + geoCountry + "</td>";
+          }
+          for (var value = 1; value < values.length; value++) {
+            let convertedNumber = numberConvertor(values[value] + "");
+
+            if (values[value] === 0) {
+              table += "<td class=columns >" + "" + "</td>";
+            } else if (value === 2) {
+              table +=
+                "<td class=newCasesColumns >" + "+" + convertedNumber + "</td>";
+            } else if (value === 4) {
+              table +=
+                "<td class=newDeathsColumns >" +
+                "+" +
+                convertedNumber +
+                "</td>";
+            } else {
+              table += "<td class=columns >" + convertedNumber + "</td>";
+            }
+          }
+          // table += "<td class=columns>" + geoMonth + " " + day + "</td>";
+          table += "</tr>";
+        }
+        document.getElementById("3").innerHTML +=
+          "<table border=1 class=table >" + table + "</table>";
+      };
+      getData().then(() => {
+        drawTable();
+      });
+    </script>
+    <div id="questions" class="questionsContainer">
+      <div class="title">ხშირად დასმული კითხვები</div>
+      <div class="firstQuestions" id="questionsContainer"></div>
+    </div>
+    <div id="footer" class="footer">
+      <div class="footerInnerContainer">
+        <div class="centeredText">
+          <img src=imgs/copyright.svg alt=copyright width=13 />
+          <div>ყველა უფლება დაცულია 2020</div>
+        </div>
+        <div class="callsContainer">
+          <div class="callContainer">
+            <img src=imgs/phone.svg alt=phone height=15 width=15 marginRight=5px
+            />
+            <div class="callText">ჯანდაცვის სამინისტროს ცხელი ხაზი: 1505</div>
+          </div>
+          <div class="callContainer">
+            <img src=imgs/phone.svg alt=phone height=15 width=15 />
+            <div class="callText">
+              დაავადებათა კონტროლის ცხელი ხაზი: 116 001
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let answerId = 10;
+      let isClickedOnQuestions = 0;
+      let text = "";
+      const makeVissibleAnswers = (id) => {
+        isClickedOnQuestions++;
+        const answerArr = questions.find((q) => {
+          return q.id === id;
+        });
+        const answer = answerArr.answer;
+        const aId = +id;
+        const idForDiv = 10 + aId + "";
+        const iconId = idForDiv + "icon";
+
+        var div = document.getElementById(idForDiv);
+        let aIcon = "";
+        if (isClickedOnQuestions % 2 === 1) {
+          text += answer;
+          aIcon = "imgs/up-arrow.svg";
+          document.getElementById(idForDiv).innerHTML = `  <div class=answers>
+              ${text}
+            </div>
+          `;
+        } else {
+          text = "";
+          document.getElementById(idForDiv).innerHTML =
+            "<div>" + " " + "</div>";
+          aIcon = "imgs/down-arrow.svg";
+        }
+
+        document.getElementById(
+          iconId
+        ).innerHTML = `<img src=${aIcon} alt=up width=15 height=15 /> `;
+      };
+      for (const question of questions) {
+        answerId++;
+        const divId = answerId + "";
+        const iconId = divId + "icon";
+        document.getElementById("questionsContainer").innerHTML += `
+        <div onclick="makeVissibleAnswers('${question.id}')" class="qWithAnswer">
+          <div class="eQuestion" id="question">
+            <div>
+            ${question.question}
+            </div>
+            <div id=${iconId}>
+                <img src=imgs/down-arrow.svg alt=up width=15 height=15 /> 
+            </div>
+          </div>
+          <div id=${divId}  >
+          </div>
+        </div>
+        `;
+      }
+    </script>
+  </body>
+</html>
