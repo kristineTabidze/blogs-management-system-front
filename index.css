@@ -102,6 +102,7 @@ main {
   margin: 0 auto;
   margin-top: 80px;
   margin-bottom: 120px;
+  min-height: calc(100vh - 245px);
 }
 
 .contentContainer {
@@ -153,7 +154,7 @@ main {
 .tab,
 .tabCountry {
   cursor: pointer;
-  background-color: rgb(51, 109, 225);
+  background-color: #7268ff;
   color: white;
   font-size: 13px;
   padding: 5px 2px;
@@ -243,7 +244,7 @@ main {
 
 .georgiaTitle {
   font-size: 42px;
-  color: rgb(86, 134, 230);
+  color: #7268ff;
   text-align: center;
   width: 350px;
 }
@@ -316,7 +317,7 @@ main {
 }
 
 .countryColumnsGeorgia {
-  color: rgb(86, 134, 230);
+  color: #7268ff;
   font-weight: bold;
 }
 
@@ -384,4 +385,52 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+label {
+  display: inline-block;
+  width: 154px;
+  text-align: right;
+  margin-right: 8px;
+}
+
+input {
+  height: 30px;
+  width: 244px;
+  border-radius: 11px;
+  outline: none;
+  border: 1px solid #b2b2b2;
+  padding: 3px 15px;
+  margin: 16px 0;
+}
+
+select {
+  width: 150px;
+  outline: none;
+  padding: 12px 22px;
+  border: none;
+  border-bottom: 1px solid grey;
+  margin: 35px 0;
+  cursor: pointer;
+}
+
+option {
+  padding: 15px 0;
+}
+
+.agreementLabel {
+  width: max-content;
+}
+
+.inputButton {
+  cursor: pointer;
+}
+
+.inputCheckbox {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
 }
