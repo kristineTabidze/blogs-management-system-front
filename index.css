@@ -2,6 +2,20 @@ body {
   margin: 0px;
   box-sizing: border-box;
   font-family: system-ui;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #9f98ff;
+  border-radius: 8px;
 }
 
 .navbarLink {
@@ -19,6 +33,32 @@ body {
   border-radius: 6px;
   font-size: 14px;
   transition: 0.6s;
+}
+
+header {
+  z-index: 10000000000;
+}
+
+.navbarButtonItem {
+  margin: 0px 10px;
+  border: 1px solid white;
+  padding: 4px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.6s;
+  background-color: #7268ff;
+  cursor: pointer;
+  color: white;
+}
+
+.navbarButtonItem.active {
+  color: #7268ff;
+  background-color: white;
+}
+
+.navbarButtonItem:hover {
+  color: #7268ff;
+  background-color: white;
 }
 
 blockquote {
@@ -51,6 +91,7 @@ blockquote {
   width: 100%;
   background: #7268ff;
   top: 0;
+  z-index: 100;
 }
 
 main {
@@ -60,6 +101,7 @@ main {
   overflow-x: hidden;
   margin: 0 auto;
   margin-top: 80px;
+  margin-bottom: 120px;
 }
 
 .contentContainer {
@@ -284,150 +326,6 @@ main {
   margin: 20px auto;
 }
 
-.valueAndIcon {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 13px;
-  text-align: center;
-  min-height: 34px;
-  width: 90px;
-  word-break: break-word;
-}
-
-.centeredText {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 223px;
-}
-
-.header {
-  background-color: rgb(51, 109, 225);
-  color: white;
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  padding: 15px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  font-size: 18px;
-}
-
-.headerButtons {
-  width: 100%;
-  display: inline-flex;
-  font-size: 15px;
-}
-
-@media screen and (max-width: 600px) {
-  .headerButtons {
-    font-size: 13px;
-  }
-}
-
-.callButton {
-  display: inline-flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-@media screen and (max-width: 1440px) {
-  .callButton {
-    margin: 0px 5px;
-    font-size: 13px;
-    width: fit-content;
-  }
-}
-
-.callIcon {
-  margin-right: 10px;
-  width: 18px;
-  height: 18px;
-}
-
-.allButtons {
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 15px;
-  width: 1721px;
-}
-
-.headerMainButtons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media screen and (max-width: 1440px) {
-  .headerMainButtons {
-    width: fit-content;
-    padding: 0px 15px;
-  }
-}
-
-.logoWithText {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.texts {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 10px;
-}
-
-@media screen and (max-width: 800px) {
-  .texts {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .allButtons {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-.headerButton {
-  margin: 0px 20px;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 600px) {
-  .headerButton {
-    margin: 0px 5px;
-  }
-}
-
-.footer {
-  background-color: rgb(51, 109, 225);
-  color: white;
-  position: relative;
-  bottom: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 10px 0;
-  font-size: 14px;
-}
-
-body {
-  margin: 0px;
-}
-
 .questionsContainer {
   max-width: 80%;
   margin: 100px auto 150px auto;
@@ -480,57 +378,10 @@ body {
   margin-left: -64px;
 }
 
-.footerInnerContainer {
-  width: calc(50% + 160px);
+footer {
+  background: #7268ff;
+  color: white;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-}
-
-@media screen and (max-width: 1400px) {
-  .footerInnerContainer {
-    padding: 0px 10px;
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-.callsContainer {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: calc(25%);
-}
-
-.callContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.callText {
-  margin-left: 10px;
-}
-
-.videoContainer {
-  width: calc(60vw);
-  height: calc(60vw / 1.8);
-  max-height: 70vh;
-  margin-top: 20px;
-}
-
-@media screen and (max-width: 800px) {
-  .videoContainer {
-    width: calc(80vw);
-    height: calc(80vw / 1.8);
-  }
-}
-
-.videoWithButton {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 90px;
+  justify-content: space-around;
 }

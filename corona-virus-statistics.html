@@ -7,6 +7,8 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-162451760-1"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -15,42 +17,42 @@
       gtag("js", new Date());
       gtag("config", "UA-162451760-1");
     </script>
-    <link rel="icon" href="imgs/tab-logo.svg" />
+    <link rel="icon" href="imgs/news.png" />
     <link rel="stylesheet" type="text/css" href="index.css" />
     <meta charset="UTF-8" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>კორონავირუსის სტატისტიკა</title>
+    <title>Corona Virus</title>
   </head>
   <body>
     <script src="index.js"></script>
     <script src="functions.js"></script>
-    <div class="header">
-      <div class="headerInnerButtons">
-        <div class="logoWithText" onclick="`${scrollToGeneralInfo()}`">
-          <img src="imgs/virusebi.svg" alt="virusebi" width="35" />
+    <script>
+      $(document).ready(function () {
+        $("div.navbarContainer > span").click(function (e) {
+          $("div.navbarContainer > span").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+    <header>
+      <nav class="navbar">
+        <div class="navbarContainer">
+          <span class="navbarItem">
+            <a class="navbarLink" href="./index.html"> About Us </a>
+          </span>
+          <span class="navbarButtonItem" onclick="`${scrollToQuestions()}`">
+            FAQ
+          </span>
+          <span class="navbarItem">
+            <a class="navbarLink" href="#">Sign In</a>
+          </span>
+          <span class="navbarItem">
+            <a class="navbarLink" href="#">Sign Up</a>
+          </span>
         </div>
-        <div class="headerMainButtons">
-          <div class="headerButton" onclick="`${scrollToStatistics()}`">
-            სტატისტიკა
-          </div>
-          <div class="headerButton" onclick="`${scrollToQuestions()}`">
-            ხშირად დასმული კითხვები
-          </div>
-        </div>
-        <div class="callButton" onclick="`${scrollToFooter()}`">
-          <img src=imgs/phone.svg alt=phone class="callIcon" /> ცხელი ხაზები
-        </div>
-      </div>
-    </div>
-    <div class="videoWithButton">
-      <iframe
-        id="video"
-        class="videoContainer"
-        allow="autoplay"
-        autoplay="1"
-        src='https://www.youtube.com/embed/xFPNoWTU7hA&feature=youtu.be&fbclid=IwAR2qkDF1Al9fobrIKHN4MG_UYA9o3UXQyy5dJc5PA2kNOooZqJQRbhHuvKw?rel=0;autoplay=1&mute=0&enablejsapi=1;playlist=xFPNoWTU7hA&feature=youtu.be&fbclid=IwAR2qkDF1Al9fobrIKHN4MG_UYA9o3UXQyy5dJc5PA2kNOooZqJQRbhHuvKw&loop=1;allow="autoplay"'
-      ></iframe>
-    </div>
+      </nav>
+    </header>
+
     <div class="generalInfo">
       <div class="mainTitle">Number of Corona Virus (COVID-19) Cases:</div>
       <div class="worldAndGeorgiaContainer" id="generalInfo">
@@ -399,30 +401,16 @@
       });
     </script>
     <div id="questions" class="questionsContainer">
-      <div class="title">ხშირად დასმული კითხვები</div>
+      <div class="title">Frequently Asked Questions</div>
       <div class="firstQuestions" id="questionsContainer"></div>
     </div>
-    <div id="footer" class="footer">
-      <div class="footerInnerContainer">
-        <div class="centeredText">
-          <img src=imgs/copyright.svg alt=copyright width=13 />
-          <div>ყველა უფლება დაცულია 2020</div>
-        </div>
-        <div class="callsContainer">
-          <div class="callContainer">
-            <img src=imgs/phone.svg alt=phone height=15 width=15 marginRight=5px
-            />
-            <div class="callText">ჯანდაცვის სამინისტროს ცხელი ხაზი: 1505</div>
-          </div>
-          <div class="callContainer">
-            <img src=imgs/phone.svg alt=phone height=15 width=15 />
-            <div class="callText">
-              დაავადებათა კონტროლის ცხელი ხაზი: 116 001
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <footer>
+      <span>
+        Powered By <br />
+        Kristine Tabidze
+      </span>
+      <span> &copy 2021 All Rights Reserved</span>
+    </footer>
     <script>
       let answerId = 10;
       let isClickedOnQuestions = 0;

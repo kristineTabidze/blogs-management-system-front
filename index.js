@@ -1,21 +1,6 @@
-const scrollToGeneralInfo = () => {
-  const coordinates = document.getElementById("generalInfo");
-  window.scroll(coordinates.top - 100, 0);
-};
-
-const scrollToStatistics = () => {
-  const coordinates = document.getElementById("3");
-  window.scroll(coordinates.top, 1100);
-};
-
 const scrollToQuestions = () => {
   const coordinates = document.getElementById("questions");
-  window.scroll(coordinates.top, 10200);
-};
-
-const scrollToFooter = () => {
-  const coordinates = document.getElementById("footer");
-  window.scroll(coordinates.bottom, 15000);
+  window.scroll(coordinates.top, 9500);
 };
 
 const insert = (arr, index, newItem) => [
