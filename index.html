@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Georgia News</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <div class="mainContainer">
-      <header>
-        <nav class="navbar">
-          <div class="navbarContainer">
-            <span class="navbarItem">
-              <a class="navbarLink" href="./corona-virus-statistics.html">Corona Virus Statistics</a>
-            </span>
-            <span class="navbarItem active">
-              <a class="navbarLink" href="#">
-                About Us
-              </a>
-            </span>
-            <span class="navbarItem">
-              <a class="navbarLink" href="#"> Contact Us </a>
-            </span>
-            <span class="navbarItem">
-              <a class="navbarLink" href="#">Sign In</a>
-            </span>
-            <span class="navbarItem">
-              <a class="navbarLink disabled" href="#">Sign Up</a>
-            </span>
-          </div>
-        </nav>
-      </header>
 
-      <main>
-        <h1 class="welcome">Welcome!</h1>
-        <blockquote class="headerText">
-          This site will help you to get the newest infromation all around the world!
-        </blockquote>      
-      </main>
+<head>
+  <title>Best News</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="icon" href="imgs/news.png" />
+  <link rel="stylesheet" href="index.css" />
+</head>
 
-      <footer>
-        <span>
-          Powered By <br />
-          Kristine Tabidze
-        </span>
-        <span> &copy 2021 All Rights Reserved</span>
-      </footer>
-      
+<body>
+  <div class="mainContainer">
+    <header>
+      <nav class="navbar">
+        <div class="navbarContainer">
+          <span class="navbarItem active">
+            <a class="navbarLink" href="#">
+              About Us
+            </a>
+          </span>
+          <span class="navbarItem">
+            <a class="navbarLink" href="./corona-virus-statistics.html">Corona Virus Statistics</a>
+          </span>
+          <span class="navbarItem">
+            <a class="navbarLink" href="./sign-in.html">Sign In</a>
+          </span>
+          <span class="navbarItem">
+            <a class="navbarLink" href="./sign-up.html">Sign Up</a>
+          </span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="welcome">Welcome!</h1>
+      <blockquote class="headerText">
+        This site will help you to get the newest infromation all around the world!
+      </blockquote>
+      <div class="contentContainer">
+        <span>On our web-site, you can check news from your device, without turning on tv and spending hours listening
+          to unnecessary information</span>
+        <img alt="news-img" src="imgs/banner-online-news-computer-coffee-newspaper-vector-flat-illustration.jpg" />
+      </div>
+      <div class="contentContainer">
+        <img alt="news-img" src="imgs/00IHW-SEXDATA-articleLarge.gif" />
+        <span>Here, you can see the newest corona virus statistics all around the world !<br />
+          <a href="./corona-virus-statistics.html">Click Here to see Statistics</a></span>
+      </div>
+      <div class="contentContainer">
+        <span>If you are already registered, you can sign in and see the newest blogs. If not, you can sign up every
+          time and you will be redirect to blog pages automatically !</span>
+        <img alt="news-img" src="imgs/animation facts blog.jpg" />
+      </div>
+    </main>
+
+    <footer>
+      <span>
+        Powered By <br />
+        Kristine Tabidze
+      </span>
+      <span> &copy 2021 All Rights Reserved</span>
+    </footer>
+
     <script>
       $(document).ready(function () {
         $("div.navbarContainer > span").click(function (e) {
@@ -56,5 +71,6 @@
         });
       });
     </script>
-  </body>
+</body>
+
 </html>
