@@ -541,3 +541,8 @@ option {
     font-size: 12px;
   }
 }
+
+.list {
+  margin: 0 auto;
+  width: max-content;
+}
