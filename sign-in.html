@@ -11,6 +11,12 @@
 </head>
 
 <body>
+    <script>
+        $("#form2").on("submit", function (e) {
+          e.preventDefault(); // cancel submission
+          window.location("./blogs.html")
+        });
+      </script>
     <div class="mainContainer">
         <header>
             <nav class="navbar">
@@ -31,15 +37,16 @@
         </header>
 
         <main>
-            <form action="" method="get">
+            <h1 class="sign-title">SIGN   IN</h1>
+            <form action="blogs.html" method="get" action="blogs.html" id="form2">
                 
                 <label for="email">Email:</label>
                 <input type="email" id="email" placeholder="Enter email"><br>
                 <label for="pass">Password:</label>
                 <input type="password" id="pass" placeholder="Enter password"><br>
                
-                <input type="submit" name="sbm" value="Sign In"  class="inputButton" >
-                <input type="reset" value="Clear">
+                <input type="submit" name="sbm" value="Sign In"  class="inputButton submitButton" >
+                <input type="reset" value="Clear" class="inputButton">
             </form>
         </main>
 

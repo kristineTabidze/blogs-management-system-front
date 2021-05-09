@@ -424,6 +424,25 @@ option {
 
 .inputButton {
   cursor: pointer;
+  width: 110px;
+  transition: 0.6s;
+  margin: 20px 15px;
+}
+
+.inputButton.submitButton {
+  border: 1px solid #7268ff;
+  color: #7268ff;
+  background-color: white;
+}
+
+.inputButton.submitButton:hover {
+  background-color: #7268ff;
+  color: white;
+}
+
+.inputButton:hover {
+  transition: 0.6s;
+  box-shadow: 9px 5px 24px 6px #0000001f;
 }
 
 .inputCheckbox {
@@ -433,4 +452,9 @@ option {
   margin: 0;
   display: inline-block;
   vertical-align: middle;
+}
+
+.sign-title {
+  letter-spacing: 4px;
+  color: #7268ff;
 }
