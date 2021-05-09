@@ -11,6 +11,13 @@
 </head>
 
 <body>
+
+  <script>
+    $("#form1").on("submit", function (e) {
+      e.preventDefault(); // cancel submission
+      window.location("./blogs.html")
+    });
+  </script>
   <div class="mainContainer">
     <header>
       <nav class="navbar">
@@ -31,24 +38,25 @@
     </header>
 
     <main>
-        <form action="" method="get">
-            <label for="user">Username:</label>
-            <input type="text" id="user" placeholder="Enter username"><br>
-            <label for="pass">Password:</label>
-            <input type="password" id="pass" placeholder="Enter password"><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter email"><br>
-            
-            <select name="select" id="">
-                <option value="">Male</option>
-                <option value="">Female</option>
-                <option value="">Other</option>
-            </select><br>
-            <input type="checkbox" name="terms" id="check" class="inputCheckbox">
-            <label for="check" class="agreementLabel">I Agree with terms and conditions</label><br>
-            <input type="submit" class="inputButton" name ="sbm" value="Sign Up">
-            <input type="reset" class="inputButton"  value="Clear">
-        </form>
+      <h1 class="sign-title">SIGN UP</h1>
+      <form action="blogs.html" name="frm" method="GET" id="form1">
+        <label for="user">Username:</label>
+        <input type="text" id="user" placeholder="Enter username" name="username" required><br>
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" placeholder="Enter password" name="password" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter email" name="email" required><br>
+
+        <select name="select" id="">
+          <option value="">Male</option>
+          <option value="">Female</option>
+          <option value="">Other</option>
+        </select><br>
+        <input type="checkbox" name="terms" id="check" class="inputCheckbox" required>
+        <label for="check" class="agreementLabel">I Agree with terms and conditions</label><br>
+        <input type="submit" class="inputButton submitButton" name="sbm" value="Sign Up">
+        <input type="reset" class="inputButton" value="Clear">
+      </form>
     </main>
 
     <footer>

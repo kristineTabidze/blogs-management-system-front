@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Blogs</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="icon" href="imgs/news.png" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <script src="index.js"></script>
+
+  <div class="mainContainer">
+    <header>
+      <nav class="navbar">
+        <div class="navbarContainer">
+          <span class="navbarItem">
+            <a class="navbarLink" href="./corona-virus-statistics.html">Corona Virus Statistics</a>
+          </span>
+          <span class="navbarItem">
+            <a class="navbarLink" href="./index.html">
+              Log out
+            </a>
+          </span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+     <div id="blogs" class="blogs"></div>
+    </main>
+
+    <footer>
+      <span>
+        Powered By <br />
+        Kristine Tabidze
+      </span>
+      <span> &copy 2021 All Rights Reserved</span>
+    </footer>
+
+    <script>
+        
+        let text = "";
+        
+        for (const blog of blogs) {
+          document.getElementById("blogs").innerHTML += `
+          <div class="blog">
+            <h2>
+            ${blog.title}
+            </h2>
+            <img src=${blog.img} />
+            <span>${blog.shortDescription}</span>
+          </div>
+          `;
+        }
+      </script>
+
+</body>
+
+</html>

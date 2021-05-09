@@ -130,3 +130,48 @@ const questions = [
       "As demand for pyrotechnics has grown colossally around the world, there has been a problem with their supply and price growth. It is noteworthy that work is underway to address the problem.",
   },
 ];
+
+const blogs = [
+  {
+    id: "0",
+    title: "React JS",
+    shortDescription:
+      "React (also known as React.js or ReactJS) is an open-source, front end, JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies.",
+    img: "./imgs/react.png",
+  },
+  {
+    id: "1",
+    title: "Angular",
+    shortDescription:
+      'Angular (commonly referred to as "Angular 2+" or "Angular v2 and above") is a TypeScript-based open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS.',
+    img: "./imgs/angular.png",
+  },
+  {
+    id: "2",
+    title: "Vue",
+    shortDescription:
+      "Vue.js (commonly referred to as Vue; pronounced /vjuː/, like 'view') is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications. It was created by Evan You, and is maintained by him and the rest of the active core team members",
+    img: "./imgs/vue.png",
+  },
+  {
+    id: "3",
+    title: "Node JS",
+    shortDescription:
+      "Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser.",
+    img: "./imgs/node.png",
+  },
+  {
+    id: "4",
+    title: "PHP",
+    shortDescription:
+      "PHP is a general-purpose scripting language especially suited to web development.[5] It was originally created by Danish-Canadian programmer Rasmus Lerdorf in 1994",
+    img: "./imgs/php.png",
+  },
+  {
+    id: "5",
+    title: "Corona Virus",
+    shortDescription:
+      "Coronaviruses are a group of related RNA viruses that cause diseases in mammals and birds. In humans and birds, they cause respiratory tract infections that can range from mild to lethal.",
+    img: "./imgs/corona.png",
+  },
+];
