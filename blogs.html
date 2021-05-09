@@ -30,7 +30,7 @@
     </header>
 
     <main>
-     <div id="blogs"></div>
+     <div id="blogs" class="blogs"></div>
     </main>
 
     <footer>
@@ -48,9 +48,9 @@
         for (const blog of blogs) {
           document.getElementById("blogs").innerHTML += `
           <div class="blog">
-            <h4>
+            <h2>
             ${blog.title}
-            <h4>
+            </h2>
             <img src=${blog.img} />
             <span>${blog.shortDescription}</span>
           </div>
