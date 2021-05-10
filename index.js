@@ -1,6 +1,6 @@
 const scrollToQuestions = () => {
   const coordinates = document.getElementById("questions");
-  window.scroll(coordinates.top, 9500);
+  window.scroll(coordinates.top, 9999);
 };
 
 const insert = (arr, index, newItem) => [
