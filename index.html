@@ -1,74 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Best News</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" href="imgs/news.png" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
 
-<head>
-  <title>Best News</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="icon" href="imgs/news.png" />
-  <link rel="stylesheet" href="index.css" />
-</head>
+  <body>
+    <div class="mainContainer">
+      <header>
+        <nav class="navbar">
+          <div class="navbarContainer">
+            <span class="navbarItem active">
+              <a class="navbarLink" href="#"> About Us </a>
+            </span>
+            <span class="navbarItem">
+              <a class="navbarLink" href="./corona-virus-statistics.html"
+                >Corona Virus Statistics</a
+              >
+            </span>
+            <span class="navbarItem">
+              <a class="navbarLink" href="./sign-in.html">Sign In</a>
+            </span>
+            <span class="navbarItem">
+              <a class="navbarLink" href="./sign-up.html">Sign Up</a>
+            </span>
+          </div>
+        </nav>
+      </header>
 
-<body>
-  <div class="mainContainer">
-    <header>
-      <nav class="navbar">
-        <div class="navbarContainer">
-          <span class="navbarItem active">
-            <a class="navbarLink" href="#">
-              About Us
-            </a>
-          </span>
-          <span class="navbarItem">
-            <a class="navbarLink" href="./corona-virus-statistics.html">Corona Virus Statistics</a>
-          </span>
-          <span class="navbarItem">
-            <a class="navbarLink" href="./sign-in.html">Sign In</a>
-          </span>
-          <span class="navbarItem">
-            <a class="navbarLink" href="./sign-up.html">Sign Up</a>
-          </span>
+      <main>
+        <h1>Welcome!</h1>
+        <blockquote class="headerText">
+          This site will help you to get the newest infromation all around the
+          world!
+        </blockquote>
+        <div class="contentContainer">
+          <span
+            >On our web-site, you can check news from your device, without
+            turning on tv and spending hours listening to unnecessary
+            information</span
+          >
+          <img
+            class="news-img"
+            alt="news-img"
+            src="imgs/banner-online-news-computer-coffee-newspaper-vector-flat-illustration.jpg"
+          />
         </div>
-      </nav>
-    </header>
+        <div class="contentContainer">
+          <img
+            class="news-img"
+            alt="corona-img"
+            src="imgs/00IHW-SEXDATA-articleLarge.gif"
+          />
+          <span
+            >Here, you can see the newest corona virus statistics all around the
+            world !<br />
+            <a href="./corona-virus-statistics.html"
+              >Click Here to see Statistics</a
+            ></span
+          >
+        </div>
+        <div class="contentContainer">
+          <span
+            >If you are already registered, you can sign in and see the newest
+            blogs. If not, you can sign up every time and you will be redirect
+            to blog pages automatically !</span
+          >
+          <img
+            alt="facts-img"
+            class="news-img"
+            src="imgs/animation-facts-blog.jpg"
+          />
+        </div>
+      </main>
+      <div class="list">
+        <h3>Why you should use this web-site?</h3>
+        <ul>
+          <li>You will gain a lot of information</li>
+          <li>This web-site will make your every day</li>
+        </ul>
+      </div>
 
-    <main>
-      <h1 >Welcome!</h1>
-      <blockquote class="headerText">
-        This site will help you to get the newest infromation all around the world!
-      </blockquote>
-      <div class="contentContainer">
-        <span>On our web-site, you can check news from your device, without turning on tv and spending hours listening
-          to unnecessary information</span>
-        <img class="news-img" alt="news-img" src="imgs/banner-online-news-computer-coffee-newspaper-vector-flat-illustration.jpg" />
-      </div>
-      <div class="contentContainer">
-        <img class="news-img" alt="corona-img" src="imgs/00IHW-SEXDATA-articleLarge.gif" />
-        <span>Here, you can see the newest corona virus statistics all around the world !<br />
-          <a href="./corona-virus-statistics.html">Click Here to see Statistics</a></span>
-      </div>
-      <div class="contentContainer">
-        <span>If you are already registered, you can sign in and see the newest blogs. If not, you can sign up every
-          time and you will be redirect to blog pages automatically !</span>
-        <img alt="facts-img" class="news-img" src="imgs/animation facts blog.jpg" />
-      </div>
-    </main>
-    <div class="list">
-    <h3>Why you should use this web-site?</h3>
-    <ul>
-      <li>You will gain a lot of information</li>
-      <li>This web-site will make your every day</li>
-    </ul>
-  </div>
-
-    <footer>
-      <span>
-        Powered By <br />
-        Kristine Tabidze
-      </span>
-      <span> &copy 2021 All Rights Reserved</span>
-    </footer>
+      <footer>
+        <span>
+          Powered By <br />
+          Kristine Tabidze
+        </span>
+        <span> &copy; 2021 All Rights Reserved</span>
+      </footer>
+    </div>
 
     <script>
       $(document).ready(function () {
@@ -78,6 +102,5 @@
         });
       });
     </script>
-</body>
-
+  </body>
 </html>
